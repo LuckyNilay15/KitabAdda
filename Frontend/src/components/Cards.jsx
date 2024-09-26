@@ -1,6 +1,10 @@
 import React from "react";
 
 function Cards({ item }) {
+  const openBookWebsite = () => {
+    // Opens the book website in the same tab
+    window.location.href = item.website; 
+  };
   return (
     <>
       <div className="mt-4 my-3 p-3">
@@ -16,9 +20,12 @@ function Cards({ item }) {
             <p><button>{item.title}</button></p>
             
             <div className="card-actions justify-between">
-              <div className="badge badge-outline">${item.price}</div>
-              <div  className=" cursor-pointer px-2 py-1 rounded-full border-[2px] hover:bg-pink-500 hover:text-white duration-200">
-                Buy Now
+              <div className="badge badge-outline">{item.price}</div>
+              <div
+                className="cursor-pointer px-2 py-1 rounded-full border-[2px] hover:bg-pink-500 hover:text-white duration-200"
+                onClick={openBookWebsite}  // Add onClick event here
+              >
+                Read
               </div>
             </div>
           </div>
